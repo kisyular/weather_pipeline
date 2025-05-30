@@ -7,7 +7,7 @@ from datetime import datetime
 today = datetime.now().strftime("%Y-%m-%d")
 
 
-def get_today_weather():
+def get_today_weather(latitude=38.2469, longitude=85.7664):
     import openmeteo_requests
     import numpy as np
     import requests_cache
@@ -19,8 +19,8 @@ def get_today_weather():
 
     url = "https://api.open-meteo.com/v1/forecast"
     params = {
-        "latitude": 38.2469,
-        "longitude": 85.7664,
+        "latitude": latitude,
+        "longitude": longitude,
         "daily": [
             "temperature_2m_max",
             "temperature_2m_min",
